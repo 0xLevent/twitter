@@ -6,6 +6,7 @@ import postRoute from "./routes/postRoute.js";
 import userRoute from "./routes/userRoute.js";
 import bodyParser from "body-parser";
 import cookieParser from 'cookie-parser';
+import { checkUser } from "./middlewares/authMiddleware.js";
 
 
 dotenv.config();
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cookieParser());
 
-
+app.use('*', checkUser);
 app.use('/', pageRoute);
 app.use("/users", userRoute);
 app.use("/post", postRoute);

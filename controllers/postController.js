@@ -5,12 +5,12 @@ import Post from "../models/postModel.js";
 const createPost = async (req, res) => {
     try {
         const { description } = req.body;
-        const userId = res.locals._id;
+        const user = res.locals.user._id;
 
-        console.log(userId);
+        console.log(user);
         const post = new Post({
             description,
-            user: userId,
+            user: user,
         });
 
         const savedPost = await post.save();
