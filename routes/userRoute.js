@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route("/login").post(userController.loginUser);
 router.route("/register").post(userController.createUser);
-router.route("/dashboard").get(userController.getDashboardPage);
+router.route("/dashboard").get(authMiddleware.authenticateToken, userController.getDashboardPage);
 
 
 export default router;

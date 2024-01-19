@@ -4,9 +4,7 @@ const getIndexPage = (req, res) =>  {
 }
 
 
-const getDashboardPage = (req, res) =>  {
-    res.render("dashboard")
-}
+
 
 const getRegisterPage = (req, res) =>  {
     res.render("register")
@@ -30,7 +28,6 @@ const getLoginPage = (req, res) => {
 
 
 export { 
-    getDashboardPage,
     getRegisterPage,
     getLoginPage,
     getLogout,

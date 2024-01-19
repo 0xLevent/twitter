@@ -51,7 +51,7 @@ const createUser = async (req, res) => {
           maxAge: 1000 * 60 * 60 * 24,
         });
   
-        res.redirect("/dashboard");
+        res.redirect("/users/dashboard");
       } else {
         res.status(401).json({
           succeeded: false,
