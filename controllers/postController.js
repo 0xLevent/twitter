@@ -7,7 +7,6 @@ const createPost = async (req, res) => {
         const { description } = req.body;
         const user = res.locals.user._id;
 
-        console.log(user);
         const post = new Post({
             description,
             user: user,
@@ -15,10 +14,8 @@ const createPost = async (req, res) => {
 
         const savedPost = await post.save();
 
-        res.status(201).json({
-            success: true,
-            post: savedPost,
-        });
+        res.status(201)
+        res.redirect('/users/dashboard');
     } catch (error) {
         res.status(500).json({
             success: false,
